@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'restaurant_menu_screen.dart';
+
 void main() {
   runApp(const BiriyaniMasterApp());
 }
@@ -136,9 +138,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       trailing: const Icon(Icons.arrow_forward_ios),
                       onTap: () {
-                        // TODO: Navigate to restaurant details
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Selected ${restaurant['name']}')),
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RestaurantMenuScreen(
+                              restaurantName: restaurant['name']!,
+                            ),
+                          ),
                         );
                       },
                     ),
